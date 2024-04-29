@@ -81,6 +81,9 @@ struct AddTabView: View {
                         Text("이탈리아 세리에A").tag(135)
                         Text("스페인 라리가").tag(140)
                         Text("프랑스 리그앙").tag(61)
+//                        Text("UEFA 챔피언스리그").tag(2)
+//                        Text("UEFA 유로파리그").tag(3)
+//                        Text("UEFA 유로파 컨퍼런스리그").tag(848)
                     }
                     .pickerStyle(.navigationLink)
                     .foregroundStyle(colorScheme == .light ? Color.black : Color.white)

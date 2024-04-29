@@ -51,18 +51,54 @@ struct MainTabView: View {
                                                 if isEditable {
                                                     ToolbarItem(placement: .topBarTrailing) {
                                                         Button(action: {
+                                                            showDeleteAlert = true
+                                                        }, label: {
+                                                            Image(systemName: "trash.circle")
+                                                                .foregroundStyle(Color.red)
+                                                        })
+                                                        .alert("삭제 확인", isPresented: $showDeleteAlert) {
+                                                            Button(role: .destructive) {
+                                                                modelContext.delete(match)
+                                                            } label: {
+                                                                Text("삭제")
+                                                            }
+                                                        } message: {
+                                                            Text("기록을 삭제하시겠습니까?")
+                                                        }
+                                                    }
+                                                    
+                                                    ToolbarItem(placement: .topBarTrailing) {
+                                                        Button(action: {
                                                             match.matchLog = matchLog
                                                             isEditable = false
                                                         }, label: {
-                                                            Text("저장")
+                                                            Image(systemName: "checkmark.circle")
                                                         })
                                                     }
                                                 } else {
                                                     ToolbarItem(placement: .topBarTrailing) {
                                                         Button(action: {
+                                                            showDeleteAlert = true
+                                                        }, label: {
+                                                            Image(systemName: "trash.circle")
+                                                                .foregroundStyle(Color.red)
+                                                        })
+                                                        .alert("삭제 확인", isPresented: $showDeleteAlert) {
+                                                            Button(role: .destructive) {
+                                                                modelContext.delete(match)
+                                                            } label: {
+                                                                Text("삭제")
+                                                            }
+                                                        } message: {
+                                                            Text("기록을 삭제하시겠습니까?")
+                                                        }
+                                                    }
+                                                    
+                                                    ToolbarItem(placement: .topBarTrailing) {
+                                                        Button(action: {
                                                             isEditable = true
                                                         }, label: {
-                                                            Text("수정")
+                                                            Image(systemName: "square.and.pencil.circle")
                                                         })
                                                     }
                                                 }
@@ -89,20 +125,10 @@ struct MainTabView: View {
                                             }
                                         }
                                         .tag(match.id)
-                                        .alert("삭제 확인", isPresented: $showDeleteAlert) {
-                                            Button(role: .destructive) {
-                                                modelContext.delete(match)
-                                            } label: {
-                                                Text("삭제")
-                                            }
-                                        } message: {
-                                            Text("기록을 삭제하시겠습니까?")
-                                        }
                                     }
                                 }
                             }
                         }
-                        //.onDelete(perform: deleteMatchLog)
                     }
                 }
                 Spacer()
@@ -112,20 +138,15 @@ struct MainTabView: View {
         }
     }
     
-    /*
-    func deleteMatchLog(_ indexSet: IndexSet) {
-        for index in indexSet {
-            let match = matchData[index]
-            modelContext.delete(match)
-        }
-    }
-    */
-    
     var groupedMatches: [(key: String, value: [MatchData])] {
         let grouped = Dictionary(grouping: matchData) { match in
             match.matchDate
         }
         return grouped.sorted { $0.key > $1.key }
+    }
+    
+    func deleteMatchLog(match: MatchData) {
+        modelContext.delete(match)
     }
 }
 
