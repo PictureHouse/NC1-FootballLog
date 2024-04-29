@@ -84,7 +84,7 @@ struct AddTabView: View {
                         Text("대한민국 K리그").tag(292)
                     }
                     .pickerStyle(.navigationLink)
-                    .foregroundStyle(colorScheme == .light ? Color(.black) : Color(.white))
+                    .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
                     .onChange(of: selectedLeague) { _, _ in
                         fixtureViewModel.fetchFixtures(matchDate: selectedDate, leagueCode: selectedLeague)
                     }
@@ -100,7 +100,7 @@ struct AddTabView: View {
                         }
                     }
                     .pickerStyle(.navigationLink)
-                    .foregroundStyle(colorScheme == .light ? Color(.black) : Color(.white))
+                    .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
                     .padding(.vertical)
                     
                     HStack {
@@ -175,7 +175,7 @@ struct AddTabView: View {
                         }, label: {
                             Text("확인")
                         })
-                        .foregroundStyle(Color(.accent))
+                        .foregroundStyle(Color.accentColor)
                     } message: {
                         Text("경기 기록 저장을 완료했습니다.")
                     }

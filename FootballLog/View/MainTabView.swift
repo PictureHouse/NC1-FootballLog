@@ -38,7 +38,7 @@ struct MainTabView: View {
                 
                 if matchData.isEmpty {
                     Text("기록된 경기가 없습니다.")
-                        .foregroundStyle(Color(.gray))
+                        .foregroundStyle(Color.gray)
                 } else {
                     List {
                         ForEach(groupedMatches, id: \.key) { (date, matches) in

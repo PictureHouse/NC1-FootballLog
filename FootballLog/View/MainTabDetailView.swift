@@ -25,7 +25,7 @@ struct MainTabDetailView: View {
                 VStack {
                     ZStack {
                         Circle()
-                            .fill(Color(.gray))
+                            .fill(match.homeTeamName == preferredTeam ? Color.clear : Color.gray)
                             .overlay(
                                 Circle().strokeBorder(match.homeTeamName == preferredTeam ? Color.accentColor : Color.clear, lineWidth: 3)
                             )
@@ -69,7 +69,7 @@ struct MainTabDetailView: View {
                 VStack {
                     ZStack {
                         Circle()
-                            .fill(Color(.gray))
+                            .fill(match.awayTeamName == preferredTeam ? Color.clear : Color.gray)
                             .overlay(
                                 Circle().strokeBorder(match.awayTeamName == preferredTeam ? Color.accentColor : Color.clear, lineWidth: 3)
                             )
@@ -106,7 +106,7 @@ struct MainTabDetailView: View {
             
             TextField("경기 한줄평", text: $matchLog)
                 .submitLabel(.done)
-                .border(isEditable ? Color(.green) : Color.clear, width: 2)
+                .border(isEditable ? Color.green : Color.clear, width: 2)
                 .scrollContentBackground(.hidden)
                 .textFieldStyle(.roundedBorder)
                 .disabled(!isEditable)

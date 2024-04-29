@@ -10,6 +10,8 @@ import SwiftUI
 struct SplashView: View {
     @Environment(\.colorScheme) var colorScheme
     
+    let version: String = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
+    
     var body: some View {
         VStack {
             Spacer()
@@ -26,7 +28,7 @@ struct SplashView: View {
             
             Spacer()
             
-            Text("[Version 1.0] 2024 Yune Cho")
+            Text("[Version \(version)] 2024 Yune Cho")
         }
     }
 }

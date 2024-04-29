@@ -87,7 +87,7 @@ struct UserTabView: View {
                     Text("대한민국 K리그").tag(292)
                 }
                 .pickerStyle(.navigationLink)
-                .foregroundStyle(colorScheme == .light ? Color(.black) : Color(.white))
+                .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
                 .padding(.bottom)
                 .onChange(of: preferredLeague) {
                     isChanged = true
@@ -110,7 +110,7 @@ struct UserTabView: View {
                     }
                 }
                 .pickerStyle(.navigationLink)
-                .foregroundStyle(colorScheme == .light ? Color(.black) : Color(.white))
+                .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
                 .padding(.bottom)
                 .onChange(of: preferredTeamName, { _, newValue  in
                     if let selectedTeam = teamViewModel.teams.first(where: { $0.name == newValue }) {
@@ -164,7 +164,7 @@ struct UserTabView: View {
                     }, label: {
                         Text("확인")
                     })
-                    .foregroundStyle(Color(.accent))
+                    .foregroundStyle(Color.accentColor)
                 } message: {
                     Text("사용자 정보 및 설정 저장을 완료했습니다.")
                 }
