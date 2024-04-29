@@ -69,7 +69,7 @@ struct UserTabView: View {
                     )
                 
                 HStack {
-                    Label("응원하는 팀", systemImage: "soccerball.inverse")
+                    Label("응원하는 팀", systemImage: "soccerball")
                         .foregroundStyle(Color.accentColor)
                     Spacer()
                 }
@@ -84,7 +84,6 @@ struct UserTabView: View {
                     Text("이탈리아 세리에A").tag(135)
                     Text("스페인 라리가").tag(140)
                     Text("프랑스 리그앙").tag(61)
-                    Text("대한민국 K리그").tag(292)
                 }
                 .pickerStyle(.navigationLink)
                 .foregroundStyle(colorScheme == .light ? Color.black : Color.white)

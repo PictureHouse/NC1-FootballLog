@@ -42,6 +42,7 @@ struct MainTabDetailView: View {
                     .padding(.vertical)
                     
                     Text(match.homeTeamName)
+                        .frame(height: 50)
                 }
                 
                 Spacer()
@@ -86,6 +87,7 @@ struct MainTabDetailView: View {
                     .padding(.vertical)
                     
                     Text(match.awayTeamName)
+                        .frame(height: 50)
                 }
             }
             .padding(.bottom)
