@@ -102,7 +102,7 @@ struct MainTabView: View {
                                 }
                             }
                         }
-                        .onDelete(perform: deleteMatchLog)
+                        //.onDelete(perform: deleteMatchLog)
                     }
                 }
                 Spacer()
@@ -112,13 +112,15 @@ struct MainTabView: View {
         }
     }
     
+    /*
     func deleteMatchLog(_ indexSet: IndexSet) {
         for index in indexSet {
             let match = matchData[index]
             modelContext.delete(match)
         }
     }
-
+    */
+    
     var groupedMatches: [(key: String, value: [MatchData])] {
         let grouped = Dictionary(grouping: matchData) { match in
             match.matchDate
