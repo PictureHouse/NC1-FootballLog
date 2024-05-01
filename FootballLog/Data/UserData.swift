@@ -14,7 +14,7 @@ class UserData {
     @AppStorage("preferredTeamName") private var preferredTeamName = ""
     @AppStorage("preferredTeamLogo") private var preferredTeamLogo = ""
     @AppStorage("preferredWayToWatch") private var preferredWayToWatch = true
-    
+        
     static let shared = UserData()
     
     init() {}

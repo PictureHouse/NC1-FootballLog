@@ -73,7 +73,7 @@ struct UserTabView: View {
                         .foregroundStyle(Color.accentColor)
                     Spacer()
                 }
-                .padding(.bottom)
+                .padding(.vertical)
                 .onTapGesture {
                     self.hideKeyboard()
                 }
@@ -142,6 +142,7 @@ struct UserTabView: View {
                         isChanged = true
                     }
                 }
+                .padding(.vertical)
                 
                 Button(action: {
                     UserData.shared.setUserName(name: userName)
