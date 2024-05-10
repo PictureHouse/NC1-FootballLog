@@ -38,6 +38,7 @@
 		0123DA3F2BD15C7600F0DB0F /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		018134A42BDBF4E200DB9BAE /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		018134A62BDBF7F900DB9BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		019CC51C2BEE51EE00A5032C /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
 		01AB19B52BCC281E00FA5BB5 /* MatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchData.swift; sourceTree = "<group>"; };
 		01B67F032BCA1F7000162449 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +57,7 @@
 		010901752BC76F26003666B1 = {
 			isa = PBXGroup;
 			children = (
+				019CC51B2BEE51B000A5032C /* ci_scripts */,
 				010901802BC76F26003666B1 /* FootballLog */,
 				0109017F2BC76F26003666B1 /* Products */,
 			);
@@ -89,6 +91,14 @@
 				0109018A2BC76F27003666B1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		019CC51B2BEE51B000A5032C /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				019CC51C2BEE51EE00A5032C /* ci_post_clone.sh */,
+			);
+			path = ci_scripts;
 			sourceTree = "<group>";
 		};
 		01B67F082BCC161300162449 /* View */ = {
