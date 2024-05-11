@@ -13,10 +13,12 @@ struct AddTabView: View {
     @Environment(\.modelContext) var modelContext
     
     @Query var matches: [MatchData]
-    
+
     @StateObject private var fixtureViewModel = FixtureViewModel()
     
     @Binding var currentTab: Int
+    @Binding var updated: Bool
+    
     @State private var showSavedAlert = false
     
     @State private var selectedDate = Date.now
@@ -87,6 +89,10 @@ struct AddTabView: View {
                     }
                     .pickerStyle(.navigationLink)
                     .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
+                    .onChange(of: updated) {
+                        selectedLeague = UserData.shared.getPreferredLeague()
+                        wayToWatch = UserData.shared.getPreferredWayToWatch()
+                    }
                     .onChange(of: selectedLeague) { _, _ in
                         fixtureViewModel.fetchFixtures(matchDate: selectedDate, leagueCode: selectedLeague)
                     }

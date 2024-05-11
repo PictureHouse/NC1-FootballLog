@@ -23,39 +23,27 @@ class UserData {
         return self.userName
     }
     
-    func setUserName(name: String) {
-        self.userName = name
-    }
-    
     func getPreferredLeague() -> Int {
         return self.preferredLeague
-    }
-    
-    func setPreferredLeague(leagueCode: Int) {
-        self.preferredLeague = leagueCode
     }
     
     func getPreferredTeamName() -> String {
         return self.preferredTeamName
     }
     
-    func setPreferredTeamName(teamName: String) {
-        self.preferredTeamName = teamName
-    }
-    
     func getPreferredTeamLogo() -> String {
         return self.preferredTeamLogo
-    }
-    
-    func setPreferredTeamLogo(logo: String) {
-        self.preferredTeamLogo = logo
     }
     
     func getPreferredWayToWatch() -> Bool {
         return self.preferredWayToWatch
     }
     
-    func setPreferredWayToWatch(wayToWatch: Bool) {
+    func setUserData(name: String, leagueCode: Int, teamName: String, teamLogo: String, wayToWatch: Bool) {
+        self.userName = name
+        self.preferredLeague = leagueCode
+        self.preferredTeamName = teamName
+        self.preferredTeamLogo = teamLogo
         self.preferredWayToWatch = wayToWatch
     }
 }

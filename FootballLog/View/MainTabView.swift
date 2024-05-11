@@ -14,10 +14,13 @@ struct MainTabView: View {
     
     @Query var matchData: [MatchData]
     
+    @Binding var updated: Bool
+    
     @State private var date = Date.now
     @State private var isEditable = false
     @State private var matchLog = ""
     @State private var showDeleteAlert = false
+    @State private var updated2 = false
     
     var body: some View {
         NavigationView {
@@ -45,7 +48,7 @@ struct MainTabView: View {
                             Section(header: Text(date)) {
                                 ForEach(matches) { match in
                                     NavigationLink {
-                                        MainTabDetailView(match: match, isEditable: $isEditable, matchLog: $matchLog)
+                                        MainTabDetailView(match: match, isEditable: $isEditable, matchLog: $matchLog, updated: $updated2)
                                             .navigationTitle("경기 상세 기록")
                                             .toolbar {
                                                 if isEditable {
@@ -135,6 +138,9 @@ struct MainTabView: View {
             }
             .padding()
             .bold()
+            .onChange(of: updated) {
+                updated2.toggle()
+            }
         }
     }
     
@@ -148,9 +154,4 @@ struct MainTabView: View {
     func deleteMatchLog(match: MatchData) {
         modelContext.delete(match)
     }
-}
-
-#Preview {
-    MainTabView()
-        .modelContainer(for: MatchData.self)
 }

@@ -17,6 +17,8 @@ struct MainTabDetailView: View {
     
     @Binding var isEditable: Bool
     @Binding var matchLog: String
+    @Binding var updated: Bool
+    
     @State private var preferredTeam = UserData.shared.getPreferredTeamName()
     
     var body: some View {
@@ -125,5 +127,8 @@ struct MainTabDetailView: View {
         }
         .padding()
         .bold()
+        .onChange(of: updated) {
+            preferredTeam = UserData.shared.getPreferredTeamName()
+        }
     }
 }

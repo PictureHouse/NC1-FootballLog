@@ -20,7 +20,9 @@ struct UserTabView: View {
     
     @State private var isChanged = false
     @State private var showSavedAlert = false
+    
     @Binding var currentTab: Int
+    @Binding var updated: Bool
     
     var body: some View {
         NavigationView {
@@ -145,13 +147,10 @@ struct UserTabView: View {
                 .padding(.vertical)
                 
                 Button(action: {
-                    UserData.shared.setUserName(name: userName)
-                    UserData.shared.setPreferredLeague(leagueCode: preferredLeague)
-                    UserData.shared.setPreferredTeamName(teamName: preferredTeamName)
-                    UserData.shared.setPreferredTeamLogo(logo: preferredTeamLogo)
-                    UserData.shared.setPreferredWayToWatch(wayToWatch: preferredWayToWatch)
+                    UserData.shared.setUserData(name: userName, leagueCode: preferredLeague, teamName: preferredTeamName, teamLogo: preferredTeamLogo, wayToWatch: preferredWayToWatch)
                     showSavedAlert = true
                     isChanged = false
+                    updated.toggle()
                 }, label: {
                     Text("저장하기")
                 })
