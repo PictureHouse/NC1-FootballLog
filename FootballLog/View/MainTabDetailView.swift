@@ -97,16 +97,44 @@ struct MainTabDetailView: View {
             Divider()
                 .padding(.bottom)
             
-            Text("경기일자 : \(match.matchDate)")
-                .padding(.bottom)
+            HStack {
+                Image(systemName: "calendar")
+                    .frame(width: 20)
+                
+                Text("경기일자 : \(match.matchDate)")
+                
+                Spacer()
+            }
+            .padding(.bottom)
             
-            Text("경기장 : \(match.stadium)")
-                .padding(.bottom)
+            HStack {
+                Image(systemName: "sportscourt")
+                    .frame(width: 20)
+                
+                Text("경기장 : \(match.stadium)")
+                
+                Spacer()
+            }
+            .padding(.bottom)
             
-            Text("관람방식 : \(match.wayToWatch == true ? "직관" : "중계")")
-                .padding(.bottom)
+            HStack {
+                Image(systemName: "eyes")
+                    .frame(width: 20)
+                
+                Text("관람방식 : \(match.wayToWatch == true ? "직관" : "중계")")
+
+                Spacer()
+            }
+            .padding(.bottom)
             
-            Text("경기 한줄평")
+            HStack {
+                Image(systemName: "quote.bubble")
+                    .frame(width: 20)
+                
+                Text("경기 한줄평")
+                
+                Spacer()
+            }
             
             TextField("경기 한줄평", text: $matchLog)
                 .submitLabel(.done)
