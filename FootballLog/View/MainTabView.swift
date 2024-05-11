@@ -34,7 +34,7 @@ struct MainTabView: View {
                     Text(userName == "" ? "기록한 경기 목록" : "\(userName)님이 기록한 경기 목록")
                         .font(.title2)
                         .foregroundStyle(Color.accentColor)
-                        .padding(.vertical)
+                        .padding(.top)
                         .onChange(of: updated) {
                             userName = UserData.shared.getUserName()
                         }
