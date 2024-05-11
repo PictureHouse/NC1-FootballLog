@@ -16,6 +16,7 @@ struct MainTabView: View {
     
     @Binding var updated: Bool
     
+    @State private var userName = UserData.shared.getUserName()
     @State private var date = Date.now
     @State private var isEditable = false
     @State private var matchLog = ""
@@ -30,10 +31,13 @@ struct MainTabView: View {
                     .frame(width: 170, height: 45)
                 
                 HStack {
-                    Text("기록한 경기 목록")
+                    Text(userName == "" ? "기록한 경기 목록" : "\(userName)님이 기록한 경기 목록")
                         .font(.title2)
                         .foregroundStyle(Color.accentColor)
                         .padding(.vertical)
+                        .onChange(of: updated) {
+                            userName = UserData.shared.getUserName()
+                        }
                     Spacer()
                 }
                 
